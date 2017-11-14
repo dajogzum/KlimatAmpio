@@ -1,6 +1,6 @@
 Module.register("klimatampio", {
 	default: {
-		ip: "192.168.1.130",
+		ip: "10.0.0.215",
 		id1: "322",
 		id2: "323",
 		id3: "324"
@@ -22,7 +22,7 @@ Module.register("klimatampio", {
 	},
 
 	instertData: function (){
-		var link = "http://"+this.config.ip+":8060/api/json/device";
+		var link = "http://"+this.config.ip+":8060/api/json/devices";
 		var tempid = this.config.id1-1; 
 		var wilgid = this.config.id2-1;
 		var cisid = this.config.id3-1;
@@ -41,6 +41,6 @@ Module.register("klimatampio", {
       				document.getElementById("klimatampio").innerHTML = "Temperatura: "+temp+"&#186C</br>Wilgotność: "+wilg+"%</br>Ciśnienie: "+cis+" hPa";
     				}
   			}
-  		}, 60*1000)
+  		}, 3000)
 	},
 });
