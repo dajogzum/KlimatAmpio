@@ -1,8 +1,9 @@
 Module.register("klimatampio", {
 	default: {
 		ip: "192.168.1.130",
-		id1: "468",
-		id2: "468",
+		id1: "322",
+		id2: "323",
+		id3: "324
 	},
 
 	start: function(){
