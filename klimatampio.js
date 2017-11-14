@@ -3,7 +3,7 @@ Module.register("klimatampio", {
 		ip: "192.168.1.130",
 		id1: "322",
 		id2: "323",
-		id3: "324
+		id3: "324"
 	},
 
 	start: function(){
