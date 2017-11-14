@@ -35,9 +35,9 @@ Module.register("klimatampio", {
   			xhttp.onreadystatechange = function() {
     			if (this.readyState == 4) {
       				json = JSON.parse(this.response).List;
-				var temp = (json[tempid].state*100)/100;
-				var wilg = json[wilgid].state;
-				var cis = json[cisid].state;
+				var temp = (json[tempid].stan*100)/100;
+				var wilg = json[wilgid].stan;
+				var cis = json[cisid].stan;
       				document.getElementById("klimatampio").innerHTML = "Temperatura: "+temp+"&#186C</br>Wilgotność: "+wilg+"%</br>Ciśnienie: "+cis+" hPa";
     				}
   			}
