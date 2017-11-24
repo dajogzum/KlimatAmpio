@@ -7,19 +7,19 @@ git clone https://github.com/dajogzum/KlimatAmpio
 
 ## Aktualizacja
 ```
-cd ../modules/klimatampio
+cd ../modules/Klimatampio
 git pull
 ```
 ### Aktualizacja jeśli były zmieniane pliki lokalnie<br>
 ```
-cd ../modules/alertsnstats
+cd ../modules/Klimatampio
 git reset --hard
 git pull
 ```
 ## Config
 ```
 {
-  module: "klimatampio",
+  module: "Klimatampio",
   position: "top_right",
   config:{
     ip: "SERVER_IP",
