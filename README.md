@@ -2,7 +2,7 @@
 
 ## Instalacja
 ```
-git clone https://github.com/dajogzum/KlimatAmpio
+git clone https://github.com/dajogzum/Klimatampio
 ```
 
 ## Aktualizacja
