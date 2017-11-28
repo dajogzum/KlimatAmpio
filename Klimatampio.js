@@ -38,7 +38,7 @@ Module.register("Klimatampio", {
 				var temp = (json[tempid].stan*100)/100;
 				var wilg = json[wilgid].stan;
 				var cis = json[cisid].stan;
-      				document.getElementById("klimatampio").innerHTML = "Temperatura: "+temp+"&#186C</br>Wilgotność: "+wilg+"%</br>Ciśnienie: "+cis+" hPa";
+      				document.getElementById("klimatampio").innerHTML = "Temperatura: <span class='bright'>"+temp+"&#186C</span></br>Wilgotność: <span class='bright'>"+wilg+"%</span></br>Ciśnienie: <span class='bright'>"+cis+" hPa</span>";
     				}
   			}
   		}, 3000)
