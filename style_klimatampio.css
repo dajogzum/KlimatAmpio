@@ -3,10 +3,10 @@
 	line-height: 25px;
 }
 .tg {
-	overflow:auto;
-    height:120px;
-    max-height:120px;
-    display:block;
+	overflow:hidden;
+    	height:100px;
+   	max-height:100px;
+   	display:block;
 	border-collapse:collapse;
 	border-spacing:0;
 }
@@ -14,7 +14,7 @@
 
 	font-size:20px;
 	font-weight:normal;
-	padding:15px 10px 0px 10px;
+	padding:10px 5px 0px 5px;
 	border-right-style:solid;
 	border-left-style:solid;
 	border-width:2px;
@@ -27,12 +27,14 @@
 	color:white;
 }
 .icon-klimat{
+	height: 70px;
+	width: auto;
 	position: relative;
 	opacity: 0.25;
 }
 .txt-klimat{
 	position: relative;
-	top: -85px;
+	top: -69px;
 }
 .big-klimat{
 	font-size: 35px;
