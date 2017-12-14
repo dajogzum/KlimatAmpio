@@ -38,7 +38,7 @@ Module.register("Klimatampio", {
 				var temp = (json[tempid].stan*100)/100;
 				var wilg = json[wilgid].stan;
 				var cis = json[cisid].stan;
-      				document.getElementById("klimatampio").innerHTML = "<table class='tg'><tr><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/temp.png'><span class='txt-klimat'>Temperatura</span></br><span class='txt-klimat big-klimat'>"+temp+"</span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/drop.png'><span class='txt-klimat'>Wilgotność</span></br><span class='txt-klimat big-klimat'>"+wilg+"</span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/press.png'><span class='txt-klimat'>"+cis+"</span></br><span class='txt-klimat big-klimat'>1001 hPa</span></td></tr></table>";
+      				document.getElementById("klimatampio").innerHTML = "<table class='tg'><tr><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/temp.png'><span class='txt-klimat'>Temperatura</span></br><span class='txt-klimat big-klimat'>"+temp+"</span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/drop.png'><span class='txt-klimat'>Wilgotność</span></br><span class='txt-klimat big-klimat'>"+wilg+"</span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/press.png'></br><span class='txt-klimat'>Ciśnienie</span></br><span class='txt-klimat big-klimat'>"+cis+"</span></td></tr></table>";
     				}
   			}
   		}, 3000)
