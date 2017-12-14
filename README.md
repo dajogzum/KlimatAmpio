@@ -24,7 +24,9 @@ git pull
   position: "top_right",
   config:{
     ip: "SERVER_IP",
-    id: "DEVICE_ID",
+    id1: "DEVICE_ID",
+    id2: "DEVICE_ID",
+    id3: "DEVICE_ID",
   }
 },
 ```
