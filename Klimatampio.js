@@ -26,6 +26,9 @@ Module.register("Klimatampio", {
 		var tempid = this.config.id1-1; 
 		var wilgid = this.config.id2-1;
 		var cisid = this.config.id3-1;
+		var prad1id = this.config.id4-1;
+		var prad2id = this.config.id5-1;
+		var roslid = this.config.id6-1;
 		var xhttp = new XMLHttpRequest();
 		var json = [];
   		setInterval(function (){
@@ -38,7 +41,10 @@ Module.register("Klimatampio", {
 				var temp = (json[tempid].stan*100)/100;
 				var wilg = json[wilgid].stan;
 				var cis = json[cisid].stan;
-      				document.getElementById("klimatampio").innerHTML = "<table class='tg'><tr><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/temp.png'><span class='txt-klimat'>Temperatura</span></br><span class='txt-klimat big-klimat'>"+temp+"<sup style='font-size:20px;'>°C</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/drop.png'><span class='txt-klimat'>Wilgotność</span></br><span class='txt-klimat big-klimat'>"+wilg+"<sup style='font-size:20px;'>%</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/press.png'></br><span class='txt-klimat'>Ciśnienie</span></br><span class='txt-klimat big-klimat'>"+cis+" <sup style='font-size:20px;'>hPa</sup></span></td></tr></table>";
+				var prad1 = json[prad1id].stan;
+				var prad2 = json[prad2id].stan;
+				var rosl = json[roslid].stan;
+      				document.getElementById("klimatampio").innerHTML = "<table class='tg'> <tr> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/temp.png'> <span class='txt-klimat'>Temperatura</span> </br> <span class='txt-klimat big-klimat'>"+temp+"<sup style='font-size:20px;'>°C</sup></span> </td> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/power.png'> </br> <span class='txt-klimat'>Prąd</span> </br> <span class='txt-klimat big-klimat'>"+prad1+"<sup style='font-size:20px;'>W</sup></span> </td> </tr> <tr style='position:relative;top:-55px;'> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/press.png'> </br> <span class='txt-klimat'>Ciśnienie</span> </br> <span class='txt-klimat big-klimat'>"+cis+"<sup style='font-size:20px;'>hPa</sup></span> </td> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/bolt.png'> </br> <span class='txt-klimat'>Prąd 2</span> </br> <span class='txt-klimat big-klimat'>"+prad2+"<sup style='font-size:20px;'>V</sup></span> </td> </tr> <tr style='position:relative;top:-110px;'> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/drop.png'> <span class='txt-klimat'>Wilgotność</span> </br> <span class='txt-klimat big-klimat'>"+wilg+"<sup style='font-size:20px;'>%</sup></span> </td> <td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/plant.png'> </br> <span class='txt-klimat'>Roślinki</span> </br> <span class='txt-klimat big-klimat'>"+rosl+"<sup style='font-size:20px;'>%</sup></span> </td> </tr></table>";
     				}
   			}
   		}, 3000)
