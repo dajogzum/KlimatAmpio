@@ -4,10 +4,10 @@
 }
 .tg {
 	overflow:hidden;
-    width: 300px;
-    height:400px;
-    max-height:400px;
-    display:block;
+  	width: 300px;
+  	height:400px;
+    	max-height:400px;
+   	display:block;
 	border-collapse:collapse;
 	border-spacing:0;
 }
