@@ -48,7 +48,7 @@ Module.register("Klimatampio", {
 				var prad1 = json[prad1id].stan;
 				var prad2 = json[prad2id].stan;
 				var rosl = json[roslid].stan/10;
-					if(rosl>=20 & rosl=<50){
+					if(rosl>=20 & rosl<=50){
 						color = (rosl-20)*4;
 					}else if(rosl<20){
 						color = 0;
