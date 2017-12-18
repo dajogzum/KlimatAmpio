@@ -2,7 +2,7 @@ Module.register("Klimatampio", {
 	default: {
 		ip: "10.0.0.215",
 		blok_1: ["Temperatura","temp.png","°C",322],
-		blok_2: ["Ciśnienie","cis.png","hPa",322],
+		blok_2: ["Ciśnienie","cis.png","hPa",332],
 		blok_3: ["Wilgotność","wilg.png","%",322],
 		blok_4: ["Licznik","power.png","kWh",322],
 		blok_5: ["Moc","bolt.png","W",322],
