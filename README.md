@@ -30,7 +30,7 @@ git pull
     id3: "DEVICE_ID",//wilgotność
     id4: "DEVICE_ID",//licznik
     id5: "DEVICE_ID",//moc
-    id6: "DEVICE_ID",//wolgoność w ogrodzie
+    id6: "DEVICE_ID",//wilgotność w ogrodzie
   }
 },
 ```
