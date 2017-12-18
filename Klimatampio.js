@@ -20,18 +20,20 @@ Module.register("Klimatampio", {
 	getDom: function() {
 		var self = this;
 		var wrapper = document.createElement("div");
-			wrapper.id = "klimatampio";
+		wrapper.id = "klimatampio";
 		return wrapper;
 	},
 
 	instertData: function (){
 		var link = "http://"+this.config.ip+":8060/api/json/devices";
-		var tempid = this.config.blok_1[3]-1; 
-		var wilgid = this.config.blok_2[3]-1;
-		var cisid = this.config.blok_3[3]-1;
-		var prad1id = this.config.blok_4[3]-1;
-		var prad2id = this.config.blok_5[3]-1;
-		var roslid = this.config.blok_6[3]-1;
+		var valid = [
+			this.config.blok_1[3]-1,
+			this.config.blok_2[3]-1,
+			this.config.blok_3[3]-1,
+			this.config.blok_4[3]-1,
+			this.config.blok_5[3]-1,
+			this.config.blok_6[3]-1
+			];
 		var xhttp = new XMLHttpRequest();
 		var json = [];
 		var self = this;
@@ -42,14 +44,15 @@ Module.register("Klimatampio", {
   			xhttp.onreadystatechange = function() {
     			if (this.readyState == 4) {
       				json = JSON.parse(this.response).List;
-				var color;
-				var val1 = (json[tempid].stan*100)/100;
-				var val2 = json[wilgid].stan;
-				var val3 = json[cisid].stan;
-				var val4 = json[prad1id].stan;
-				var val5 = json[prad2id].stan;
-				var val6 = json[roslid].stan/10;
-      				document.getElementById("klimatampio").innerHTML = "<table class='tg'><tr><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_1[1]+"'><span class='txt-klimat'>"+self.config.blok_1[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val1, self.config.blok_1[4], self.config.blok_1[5], self.config.blok_1[6], self.config.blok_1[7])+");'>"+val1+"<sup style='font-size:20px;'>"+self.config.blok_1[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_4[1]+"'></br><span class='txt-klimat'>"+self.config.blok_4[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val4, self.config.blok_4[4], self.config.blok_4[5], self.config.blok_4[6], self.config.blok_4[7])+");'>"+val4+"<sup style='font-size:20px;'>"+self.config.blok_4[2]+"</sup></span></td></tr><tr style='position:relative;top:-55px;'><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_2[1]+"'></br><span class='txt-klimat'>"+self.config.blok_2[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val2, self.config.blok_2[4], self.config.blok_2[5], self.config.blok_2[6], self.config.blok_2[7])+");'>"+val2+"<sup style='font-size:20px;'>"+self.config.blok_2[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_5[1]+"'></br> <span class='txt-klimat'>"+self.config.blok_5[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val5, self.config.blok_5[4], self.config.blok_5[5], self.config.blok_5[6], self.config.blok_5[7])+");'>"+val5+"<sup style='font-size:20px;'>"+self.config.blok_5[2]+"</sup></span></td></tr><tr style='position:relative;top:-110px;'><td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_3[1]+"'><span class='txt-klimat'>"+self.config.blok_3[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val3, self.config.blok_3[4], self.config.blok_3[5], self.config.blok_3[6], self.config.blok_3[7])+");'>"+val3+"<sup style='font-size:20px;'>"+self.config.blok_3[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_6[1]+"'></br><span class='txt-klimat'>"+self.config.blok_6[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val6, self.config.blok_6[4], self.config.blok_6[5], self.config.blok_6[6], self.config.blok_6[7])+");'>"+val6+"<sup style='font-size:20px;'>"+self.config.blok_6[2]+"</sup></span></td></tr></table>";
+				var val = [
+					(json[val1id].stan*100)/100,
+					json[val2id].stan,
+					json[val3id].stan,
+					json[val4id].stan,
+					json[val5id].stan,
+					json[val6id].stan/10
+				];
+      				document.getElementById("klimatampio").innerHTML = "<table class='tg'><tr><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_1[1]+"'><span class='txt-klimat'>"+self.config.blok_1[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[0], self.config.blok_1[4], self.config.blok_1[5], self.config.blok_1[6], self.config.blok_1[7])+");'>"+val[0]+"<sup style='font-size:20px;'>"+self.config.blok_1[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_4[1]+"'></br><span class='txt-klimat'>"+self.config.blok_4[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[3], self.config.blok_4[4], self.config.blok_4[5], self.config.blok_4[6], self.config.blok_4[7])+");'>"+val[3]+"<sup style='font-size:20px;'>"+self.config.blok_4[2]+"</sup></span></td></tr><tr style='position:relative;top:-55px;'><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_2[1]+"'></br><span class='txt-klimat'>"+self.config.blok_2[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[1], self.config.blok_2[4], self.config.blok_2[5], self.config.blok_2[6], self.config.blok_2[7])+");'>"+val[1]+"<sup style='font-size:20px;'>"+self.config.blok_2[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_5[1]+"'></br> <span class='txt-klimat'>"+self.config.blok_5[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[4], self.config.blok_5[4], self.config.blok_5[5], self.config.blok_5[6], self.config.blok_5[7])+");'>"+val[4]+"<sup style='font-size:20px;'>"+self.config.blok_5[2]+"</sup></span></td></tr><tr style='position:relative;top:-110px;'><td class='tg-baqh'> <img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_3[1]+"'><span class='txt-klimat'>"+self.config.blok_3[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[2], self.config.blok_3[4], self.config.blok_3[5], self.config.blok_3[6], self.config.blok_3[7])+");'>"+val[2]+"<sup style='font-size:20px;'>"+self.config.blok_3[2]+"</sup></span></td><td class='tg-baqh'><img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.blok_6[1]+"'></br><span class='txt-klimat'>"+self.config.blok_6[0]+"</span></br><span class='txt-klimat big-klimat' style='color: hsl("+self.color(val[5], self.config.blok_6[4], self.config.blok_6[5], self.config.blok_6[6], self.config.blok_6[7])+");'>"+val[5]+"<sup style='font-size:20px;'>"+self.config.blok_6[2]+"</sup></span></td></tr></table>";
     				}
   			}
   		}, 3000)
