@@ -34,10 +34,10 @@ git pull
   }
 },
 ```
-obsługa kolorów - true/false (bool) włączenie lub wyłączenie kolorów zależnych od stanu.
-min - (integer) wartość dla jakiej ma być kolor czerwony.
-max - (integer) wartość dla jakkiej ma być kolor zielony.
-invert - true/false (bool) przy włączonej opcji dla minimum jest zielony a dla maximum jest czerwony.
+obsługa kolorów - true/false (bool) włączenie lub wyłączenie kolorów zależnych od stanu.<br>
+min - (integer) wartość dla jakiej ma być kolor czerwony.<br>
+max - (integer) wartość dla jakkiej ma być kolor zielony.<br>
+invert - true/false (bool) przy włączonej opcji dla minimum jest zielony a dla maximum jest czerwony.<br>
 
 Nie trzeba podawać pełnego zakresu do obsługi kolorów, jesli mamy wartości od 0 do 1000 a wiemy że poniżej 200 jest już stan zły(czerwony kolor) a od 800 jest stan dobry(zielony kolor) to w 'min' wystarczy wpisać 200 a 'max' 800. Wtedy kolor będzie sie zmieniał dynamicznie w przedziale 200-800 a poza tym zakresem będą odpowiednie kolory na stałe.
 
