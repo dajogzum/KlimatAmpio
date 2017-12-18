@@ -25,12 +25,13 @@ git pull
   position: "top_right",
   config:{
     ip: "SERVER_IP",
-    id1: "DEVICE_ID",//temperatura
-    id2: "DEVICE_ID",//ciśnienie
-    id3: "DEVICE_ID",//wilgotność
-    id4: "DEVICE_ID",//licznik
-    id5: "DEVICE_ID",//moc
-    id6: "DEVICE_ID",//wilgotność w ogrodzie
+    blok_1: ["Tytuł","ikonka.png","Jednostka",ID],
+    blok_2: ["Tytuł","ikonka.png","Jednostka",ID],
+    blok_3: ["Tytuł","ikonka.png","Jednostka",ID],
+    blok_4: ["Tytuł","ikonka.png","Jednostka",ID],
+    blok_5: ["Tytuł","ikonka.png","Jednostka",ID],
+    blok_6: ["Tytuł","ikonka.png","Jednostka",ID],
   }
 },
 ```
+Ikony proponuję w rozmiarze 100x100 oczywiście przezroczyty .png
