@@ -26,7 +26,7 @@ Module.register("Klimatampio", {
     		table= document.createElement('table');
 		table.className = 'tg';
     		for(var i = 0; i < tabele; i++){
-        		var tr = tabele.insertRow();
+        		var tr = table.insertRow();
         		tr.style.top = "-"+(55*i)+"px";
         		for(var j = 0; j < 2; j++){
           			var td = tr.insertCell();
