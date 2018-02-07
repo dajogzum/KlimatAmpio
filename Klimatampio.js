@@ -20,6 +20,7 @@ Module.register("Klimatampio", {
 	},
 
 	  getDom: function() {
+		self = this;
 		var cnt = 0;
 		var tabele = this.config.bloki.length/2;
     		var wrapper = document.createElement("div");
@@ -31,7 +32,7 @@ Module.register("Klimatampio", {
         		for(var j = 0; j < 2; j++){
           			var td = tr.insertCell();
           			td.className = "tg-baqh";
-          			td.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[cnt][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[cnt][0]+"</span></br><span id='blok_"+(cnt+1)+"' class='txt-klimat big-klimat'>...</span>";
+          			td.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+self.config.bloki[cnt][1]+"'></br><span class='txt-klimat'>"+self.config.bloki[cnt][0]+"</span></br><span id='blok_"+(cnt+1)+"' class='txt-klimat big-klimat'>...</span>";
           			tr.appendChild(td);
           			cnt++;
         		}
