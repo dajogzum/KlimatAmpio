@@ -19,40 +19,25 @@ Module.register("Klimatampio", {
 		return ["style_klimatampio.css"];
 	},
 
-	getDom: function() {
-		var wrapper = document.createElement("div");
-		var table = document.createElement("table");
-		table.className = "tg";
-		var row1 = table.insertRow(0);
-		var cell1 = row1.insertCell(0);
-		cell1.className = "tg-baqh";
-		cell1.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[0][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[0][0]+"</span></br><span id='blok_1' class='txt-klimat big-klimat'>...</span>";
-		var cell2 = row1.insertCell(1);
-		cell2.className = "tg-baqh";
-		cell2.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[1][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[1][0]+"</span></br><span id='blok_2' class='txt-klimat big-klimat'>...</span>";
-		var row2 = table.insertRow(1);
-		row2.style.position = "relative";
-		row2.style.top = "-55px";
-		var cell3 = row2.insertCell(0);
-		cell3.className = "tg-baqh";
-		cell3.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[2][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[2][0]+"</span></br><span id='blok_3' class='txt-klimat big-klimat'>...</span>";
-		var cell4 = row2.insertCell(1);
-		cell4.className = "tg-baqh";
-		cell4.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[3][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[3][0]+"</span></br><span id='blok_4' class='txt-klimat big-klimat'>...</span>";
-		var row3 = table.insertRow(2);
-		row3.style.position = "relative";
-		row3.style.top = "-110px";
-		var cell5 = row3.insertCell(0);
-		cell5.className = "tg-baqh";
-		cell5.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[4][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[4][0]+"</span></br><span id='blok_5' class='txt-klimat big-klimat'>...</span>";
-		var cell6 = row3.insertCell(1);
-		cell6.className = "tg-baqh";
-		cell6.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[5][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[5][0]+"</span></br><span id='blok_6' class='txt-klimat big-klimat'>...</span>";
-		wrapper.id = "klimatampio";
-		wrapper.appendChild(table);
-		return wrapper;
-	},
-
+	  getDom: function() {
+    var wrapper = document.createElement("div");
+    table= document.createElement('table');
+    table.className = 'tg';
+    for(var i = 0; i < tabele; i++){
+        var tr = tbl.insertRow();
+        tr.style.top = "-"+(55*i)+"px";
+        for(var j = 0; j < 2; j++){
+          var td = tr.insertCell();
+          td.className = "tg-baqh";
+          td.innerHTML = "<img class='icon-klimat' src='modules/Klimatampio/icons/"+this.config.bloki[cnt][1]+"'></br><span class='txt-klimat'>"+this.config.bloki[cnt][0]+"</span></br><span id='blok_"+(cnt+1)+"' class='txt-klimat big-klimat'>...</span>";
+          tr.appendChild(td);
+          cnt++;
+        }
+    }
+    wrapper.id = "klimatampio";
+    wrapper.appendChild(table);
+    return wrapper;
+},
 	instertData: function (){
 		var link = "http://"+this.config.ip+":8060/api/json/devices";
 		var valid = [
