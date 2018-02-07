@@ -57,4 +57,7 @@ czerwony - żółty - zielony - błękitny - niebieski (dla inverted bedzie odwr
 
 Nie trzeba podawać pełnego zakresu do obsługi kolorów, jesli mamy wartości od 0 do 1000 a wiemy że poniżej 200 jest już stan zły(czerwony kolor) a od 800 jest stan dobry(zielony kolor) to w 'min' wystarczy wpisać 200 a 'max' 800. Wtedy kolor będzie sie zmieniał dynamicznie w przedziale 200-800 a poza tym zakresem będą odpowiednie kolory na stałe.
 
+UWAGA!
+Skrypt sam zlicza ilość elementów w tablicy (config). Jedyny wymóg to aby ilość była parzysta bo w rzędzie są dwie komórki.
+
 Ikony proponuję w rozmiarze 100x100 oczywiście przezroczyty .png
