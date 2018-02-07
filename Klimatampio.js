@@ -21,9 +21,9 @@ Module.register("Klimatampio", {
 
 	  getDom: function() {
 		var cnt = 0;
-		var tabele = this.config.bloki.length;
+		var tabele = this.config.bloki.length/2;
     		var wrapper = document.createElement("div");
-    		table= document.createElement('table');
+    		table = document.createElement('table');
 		table.className = 'tg';
     		for(var i = 0; i < tabele; i++){
         		var tr = table.insertRow();
