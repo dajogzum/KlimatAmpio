@@ -24,6 +24,8 @@ git pull
   module: "Klimatampio",
   position: "top_right",
   config:{
+    usr: "admin",
+    pswd: "admin,
     ip: "SERVER_IP",
 		bloki: [
 			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok1
