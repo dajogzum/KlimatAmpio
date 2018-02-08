@@ -36,7 +36,7 @@ git pull
   }
 },
 ```
-modyfikator - służy do korygowania wartości dla przykładu jeżeli otrzymujemy 23.4000 a nie chcemy tylu zer po przecinku to wystarczy w to miejsce wstawić "*1", jeżeli otrzymujemy 564 a wiemy że są to procenty to wystarczy wstawić "/10". W przypadku kiedy nie trzeba nic korygować zostawić dokładnie to ""!
+modyfikator - służy do korygowania wartości dla przykładu jeżeli otrzymujemy 23.4000 a nie chcemy tylu zer po przecinku to wystarczy w to miejsce wstawić "*1", jeżeli otrzymujemy 564 a wiemy że są to procenty to wystarczy wstawić "/10". W przypadku kiedy nie trzeba nic korygować zostawić dokładnie to "" (pusty cudzysłów)!
 
 obsługa kolorów - true/false (bool) włączenie lub wyłączenie kolorów zależnych od stanu.<br>
 min - (integer) wartość dla jakiej ma być kolor czerwony.<br>
