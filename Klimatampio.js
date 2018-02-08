@@ -1,13 +1,15 @@
 Module.register("Klimatampio", {
 	default: {
 		ip: "192.168.0.23",
+		usr: "admin",
+		pswd: "ampio",
 		bloki: [
-			["Temperatura","temp.png","°C",001,false],
-			["Ciśnienie","press.png","hPa",002,false],
-			["Wilgotność","drop.png","%",003,false],
-			["Licznik","power.png","kWh",004,false],
-			["Moc","bolt.png","W",005,false],
-			["Ogród","plant.png","%",006,false],
+			["Temperatura","temp.png","°C","",001,false],
+			["Ciśnienie","press.png","hPa","",002,false],
+			["Wilgotność","drop.png","%","",003,false],
+			["Licznik","power.png","kWh","",004,false],
+			["Moc","bolt.png","W","",005,false],
+			["Ogród","plant.png","%","",006,false],
 		],
 	},
 
@@ -43,37 +45,28 @@ Module.register("Klimatampio", {
 		},
 	
 	instertData: function (){
+		var len = this.config.bloki.length
 		var link = "http://"+this.config.ip+":8060/api/json/devices";
-		var valid = [
-			this.config.bloki[0][3]-1,
-			this.config.bloki[1][3]-1,
-			this.config.bloki[2][3]-1,
-			this.config.bloki[3][3]-1,
-			this.config.bloki[4][3]-1,
-			this.config.bloki[5][3]-1
-			];
+		var valid = [];
+		for (var i=0;i<len;i++){
+			valid[i] = this.config.bloki[i][4]-1;
+		};
 		var xhttp = new XMLHttpRequest();
 		var json = [];
 		var self = this;
   		setInterval(function (){
   			xhttp.open("get", link, true);
-			xhttp.setRequestHeader("Authorization", "Basic " + btoa("admin:ampio"));
+			xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
   			xhttp.send();
   			xhttp.onreadystatechange = function() {
     			if (this.readyState == 4) {
       				json = JSON.parse(this.response).List;
-				var val = [
-					(json[valid[0]].stan*100)/100,
-					json[valid[1]].stan,
-					json[valid[2]].stan,
-					json[valid[3]].stan,
-					json[valid[4]].stan,
-					json[valid[5]].stan/10
-				];
-				for(i=1;i<7;i++){
+				var val = [];
+				self.values(val, len, json, valid);
+				for(var i = 1; i<len+1; i++){
 					var target = document.getElementById("blok_"+i);
 					target.innerHTML = val[i-1]+"<sup style='font-size:20px;'>"+self.config.bloki[i-1][2]+"</sup>";
-					var color = self.color(val[i-1], self.config.bloki[i-1][4], self.config.bloki[i-1][5], self.config.bloki[i-1][6], self.config.bloki[i-1][7], self.config.bloki[i-1][8]);
+					var color = self.color(val[i-1], self.config.bloki[i-1][5], self.config.bloki[i-1][6], self.config.bloki[i-1][7], self.config.bloki[i-1][8], self.config.bloki[i-1][9]);
 					target.style.color = "hsl("+color+")";
 					};
     				}
@@ -115,5 +108,18 @@ Module.register("Klimatampio", {
 	    hsl = "0,100%,100%";
 	    return hsl;
 	  }
+	},
+
+	values: function(val, len, json, valid){
+		self = this;
+		for (var i = 0; i<len; i++){
+			val[i] = json[valid[i]].stan;
+			if(val[i] == null){
+				val[i] = "Error";
+			}else{
+				val[i] = eval(val[i]+self.config.bloki[i][3]);
+			}
+		};
+	return val;
 	},
 });
