@@ -42,8 +42,8 @@ modyfikator - służy do korygowania wartości dla przykładu jeżeli otrzymujem
 
 obsługa kolorów - true/false (bool) włączenie lub wyłączenie kolorów zależnych od stanu.<br>
 min - (integer) wartość dla jakiej ma być kolor czerwony.<br>
-max - (integer) wartość dla jakiej ma być kolor zielony.<br>
-invert - true/false (bool) przy włączonej opcji dla minimum jest zielony a dla maximum jest czerwony.<br>
+max - (integer) wartość dla jakiej ma być kolor "range" (patrz niżej).<br>
+invert - true/false (bool) przy włączonej opcji dla minimum jest "range" a dla maximum jest czerwony.<br>
 range - zakres kolorów według HSL:
 0 - czerwony
 60 - żółty
