@@ -26,16 +26,18 @@ git pull
   config:{
     ip: "SERVER_IP",
 		bloki: [
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok1
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok2
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok3
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok4
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok5
-			["Nazwa Bloku","ikona.png","jednostka",ID,obsługa kolorów,min,max,invert,range],//Blok6
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok1
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok2
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok3
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok4
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok5
+			["Nazwa Bloku","ikona.png","jednostka","modyfikator",ID,obsługa kolorów,min,max,invert,range],//Blok6
 		],
   }
 },
 ```
+modyfikator - służy do korygowania wartości dla przykładu jeżeli otrzymujemy 23.4000 a nie chcemy tylu zer po przecinku to wystarczy w to miejsce wstawić "*1", jeżeli otrzymujemy 564 a wiemy że są to procenty to wystarczy wstawić "/10". W przypadku kiedy nie trzeba nic korygować zostawić dokładnie to ""!
+
 obsługa kolorów - true/false (bool) włączenie lub wyłączenie kolorów zależnych od stanu.<br>
 min - (integer) wartość dla jakiej ma być kolor czerwony.<br>
 max - (integer) wartość dla jakiej ma być kolor zielony.<br>
