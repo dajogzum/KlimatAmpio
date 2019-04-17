@@ -46,31 +46,34 @@ Module.register("Klimatampio", {
 	
 	instertData: function (){
 		var len = this.config.bloki.length
-		var link = "http://"+this.config.ip+":8060/api/json/devices";
-		var valid = [];
+		var links = [];
 		for (var i=0;i<len;i++){
-			valid[i] = this.config.bloki[i][4]-1;
+			links[i] = "http://"+this.config.ip+":8060/api/json/device/"+this.config.bloki[i][4]+"/state";
 		};
 		var xhttp = new XMLHttpRequest();
 		var json = [];
 		var self = this;
   		setInterval(function (){
-  			xhttp.open("get", link, true);
-			xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
-  			xhttp.send();
-  			xhttp.onreadystatechange = function() {
-    			if (this.readyState == 4) {
-      				json = JSON.parse(this.response).List;
-				var val = [];
-				self.values(val, len, json, valid);
-				for(var i = 1; i<len+1; i++){
+			for(var i =0;i<len;i++)
+			{
+	  			xhttp.open("get", links[i], false);
+				xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
+	  			xhttp.send();
+	  			xhttp.onreadystatechange = function() {
+	    			if (this.readyState == 4) {
+	      				value = JSON.parse(this.response).Results.state;
+					if(value == null){
+						value = "Error";
+					}else{
+						value = eval(value+self.config.bloki[i-1][3]);
+					}
 					var target = document.getElementById("blok_"+i);
-					target.innerHTML = val[i-1]+"<sup style='font-size:20px;'>"+self.config.bloki[i-1][2]+"</sup>";
-					var color = self.color(val[i-1], self.config.bloki[i-1][5], self.config.bloki[i-1][6], self.config.bloki[i-1][7], self.config.bloki[i-1][8], self.config.bloki[i-1][9]);
+					target.innerHTML = value+"<sup style='font-size:20px;'>"+self.config.bloki[i-1][2]+"</sup>";
+					var color = self.color(value, self.config.bloki[i-1][5], self.config.bloki[i-1][6], self.config.bloki[i-1][7], self.config.bloki[i-1][8], self.config.bloki[i-1][9]);
 					target.style.color = "hsl("+color+")";
 					};
-    				}
-  			}
+	  			}
+			}
   		}, 3000)
 	},
 	
