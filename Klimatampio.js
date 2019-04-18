@@ -72,7 +72,7 @@ console.log(self.config.bloki[i]);
                                         }
                                         var target = document.getElementById("blok_"+(i+1));
                                         target.innerHTML = value+"<sup style='font-size:20px;'>"+self.config.bloki[i][2]+"</sup>";
-                                        var color = self.color(value, self.config.bloki[i][5], self.config.bloki[i][6], self.config.blok$
+                                        var color = self.color(value, self.config.bloki[i][5], self.config.bloki[i][6], self.config.bloki[i][7], self.config.bloki[i][8], self.config.bloki[i][9]);
                                         target.style.color = "hsl("+color+")";
                                         };
                                 }
