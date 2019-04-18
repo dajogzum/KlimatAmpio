@@ -54,9 +54,8 @@ Module.register("Klimatampio", {
                 var json = [];
                 var self = this;
                 setInterval(function (){
-                        for(var i =0;i<len;i++)
+                        for(var i =0-1;i<len;i++)
                         {
-console.log("for: "+i);
                                 xhttp.open("get", links[i], false);
                                 xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
                                 xhttp.send();
@@ -66,8 +65,6 @@ console.log("for: "+i);
                                         if(value == null){
                                                 value = "Error";
                                         }else{
-console.log("http: "+(i-1));
-console.log(self.config.bloki[i]);
                                                 value = eval(value+self.config.bloki[i][3]);
                                         }
                                         var target = document.getElementById("blok_"+(i+1));
