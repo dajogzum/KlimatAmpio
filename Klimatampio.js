@@ -44,38 +44,41 @@ Module.register("Klimatampio", {
     		return wrapper;
 		},
 	
-	instertData: function (){
-		var len = this.config.bloki.length
-		var links = [];
-		for (var i=0;i<len;i++){
-			links[i] = "http://"+this.config.ip+":8060/api/json/device/"+this.config.bloki[i][4]+"/state";
-		};
-		var xhttp = new XMLHttpRequest();
-		var json = [];
-		var self = this;
-  		setInterval(function (){
-			for(var i =0;i<len;i++)
-			{
-	  			xhttp.open("get", links[i], false);
-				xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
-	  			xhttp.send();
-	  			xhttp.onreadystatechange = function() {
-	    			if (this.readyState == 4) {
-	      				value = JSON.parse(this.response).Results.state;
-					if(value == null){
-						value = "Error";
-					}else{
-						value = eval(value+self.config.bloki[i-1][3]);
-					}
-					var target = document.getElementById("blok_"+i);
-					target.innerHTML = value+"<sup style='font-size:20px;'>"+self.config.bloki[i-1][2]+"</sup>";
-					var color = self.color(value, self.config.bloki[i-1][5], self.config.bloki[i-1][6], self.config.bloki[i-1][7], self.config.bloki[i-1][8], self.config.bloki[i-1][9]);
-					target.style.color = "hsl("+color+")";
-					};
-	  			}
-			}
-  		}, 3000)
-	},
+        instertData: function (){
+                var len = this.config.bloki.length
+                var links = [];
+                for (var i=0;i<len;i++){
+                        links[i] = "http://"+this.config.ip+":8060/api/json/device/"+this.config.bloki[i][4]+"/state";
+                };
+                var xhttp = new XMLHttpRequest();
+                var json = [];
+                var self = this;
+                setInterval(function (){
+                        for(var i =0;i<len;i++)
+                        {
+console.log("for: "+i);
+                                xhttp.open("get", links[i], false);
+                                xhttp.setRequestHeader("Authorization", "Basic " + btoa(self.config.usr+":"+self.config.pswd));
+                                xhttp.send();
+                                xhttp.onreadystatechange = function() {
+                                if (this.readyState == 4) {
+                                        value = JSON.parse(this.response).Results.state;
+                                        if(value == null){
+                                                value = "Error";
+                                        }else{
+console.log("http: "+(i-1));
+console.log(self.config.bloki[i]);
+                                                value = eval(value+self.config.bloki[i][3]);
+                                        }
+                                        var target = document.getElementById("blok_"+(i+1));
+                                        target.innerHTML = value+"<sup style='font-size:20px;'>"+self.config.bloki[i][2]+"</sup>";
+                                        var color = self.color(value, self.config.bloki[i][5], self.config.bloki[i][6], self.config.blok$
+                                        target.style.color = "hsl("+color+")";
+                                        };
+                                }
+                        }
+                }, 3000)
+        },
 	
 	color: function(value, OnOff, min, max, invert, range){
 	  if(range == ""){
